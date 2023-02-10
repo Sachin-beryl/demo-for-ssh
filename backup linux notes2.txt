@@ -1,0 +1,455 @@
+﻿					LINUX COMMAND
+
+1. sudo command
+    • require administrative or root permissions.	
+    • root user can run sudo commands for 15 minutes/session.
+    • syntax :- sudo (command)
+    • -k or –reset-timestamp invalidates the timestamp file.
+    • -g or –group=group runs commands as a specified group name or ID.
+    • -h option causes sudo to print a usage message and exit. 
+    • APT :- Advance package tool
+    • syntax :- sudo apt update    (only make updated list , installation not done)
+    • syntax :- sudo apt install tree.   (installing tree using sudo apt)
+    • syntax :- sudo apt upgrade.   (for installing all updated list in one go.)
+
+2. pwd command
+    • find the path of your current working directory
+    • syntax:- pwd
+	
+3. cd command
+    • navigate through the Linux files and directories
+    • syntax:- cd photos
+	
+4. ls command
+    • ls command lists files and directories within a system
+    • syntax:- ls /home/username/Documents
+    • ls -R lists all the files in the subdirectories. (recursive)
+    • ls -a shows hidden files in addition to the visible ones.
+    • ls -lh shows the file sizes in easily readable formats, such as MB, GB, and TB
+	
+5. cat command
+    • lists, combines, and writes file content to the standard output.
+    • syntax :- cat filename.txt.
+    • cat > filename.txt creates a new file.
+    • cat filename1.txt filename2.txt > filename3.txt merges filename1.txt and filename2.txt and stores the output in filename3.txt.
+    • tac filename.txt displays content in reverse order.
+	
+6. cp command
+    • copy files or directories and their content
+    • To copy one file from the current directory to another. 
+      syntax:- cp filename.txt /home/username/Documents
+      
+    • copy the content of a file to a new file in the same directory. 
+      syntax:- cp filename1.txt filename2.txt
+      
+    • To copy an entire directory. 
+      syntax:- cp -R /home/username/Documents /home/username/Documents_backup    (Recursive coping of directory files into another )
+
+NOTE:- in R if dest_dir present make sour_dir as subdirectory in dest_dir
+	if dest_dir not present then make dest_dir and copy the files of sour_dir.
+
+	-i(interactive) , -b(backup) , -f(force)
+	
+
+
+7. mv command
+    • move and rename files and directories.
+    • syntax:- mv filename.txt /home/username/Documents.
+    • rename file syfntax:- mv old_filename.txt new_filename.txt
+	
+8. mkdir command
+    • create one or multiple directories at once and set permissions for each of them.
+    • syntax:- mkdir Music
+	
+9. rmdir command
+    • permanently delete an empty directory.
+    • syntax:- rmdir -p mydir/personal1
+      
+	
+10. rm command
+    • delete files within a directory.
+    • can’t undo it.
+    • syntax:- rm filename
+    • multi file syntax:- rm filename1 filename2 filename3
+
+11. touch command
+    • allows you to create an empty file or generate and modify a timestamp in the Linux command line.
+    • syntax:- touch /home/username/Documents/Web.html
+      Various touch commands :
+      
+      (a) touch -a – It is used for change the access time of a file.
+      (b) touch -m – It is used for only change the modification time of a file.
+      (c) touch -r – It is used for update time of file with reference to other mentioned file.
+      Example :
+      touch -r demo.txt Demo.txt
+      or
+      touch Demo.txt -r demo.txt
+
+	(d) touch -t – It is used to change the modification and access time of a file by determining a specified 		          time to it.
+		Syntax :
+		touch  -t YYYYMMDDhhmm.ss
+	
+12. locate command
+    • find a file in the database system.
+    • -i argument will turn off case sensitivity.
+    • look for content that contains two or more words. 
+      syntax:- locate -i school*note
+	
+13. find command
+    • search for files within a specific directory and perform subsequent operations
+    • syntax:- find /home -name notes.txt
+    • syntax :-  find . -name “poe*”
+    • here “.” is use for current directory  where to find files  , “-name” is use for searching by name ,  and “poe*” shows file name starting with poe and end with any number  of character.
+	
+14. grep command
+    • find a word by searching through all the texts in a specific file.
+    • prints all lines that contain the specific pattern.
+    • syntax :- grep -n  “blue”  notepad.txt     [- n for numbers]
+      
+    • -vi -> when we want to drop the line matching with search.  
+      Syntax:- grep -vi “the” poems.txt
+      
+    • Word length more then 6 .  
+      syntax :- grep -E “\w{6,}” poems.txt
+
+
+
+
+
+
+
+15. df command
+    • report the system’s disk space usage.
+    • shown in percentage and kilobyte (KB).
+    • syntax :- df -h
+    • df -m displays information on the file system usage in MBs.
+    • df -k displays file system usage in KBs.
+    • df -T shows the file system type in a new column.
+	
+16. du command
+    • check how much space a file or a directory takes up
+    • identify which part of the system uses the storage excessively.
+    • syntax:- du /home/user/Documents
+	
+17. head command
+    • view the first ten lines of a text.
+    • syntax :- head note.txt
+    • customized number of lines syntax:- head -n 5 filename.txt
+	
+18. tail command
+    • last ten lines of a file.
+    • check whether a file has new data or to read error messages.
+    • syntax:- tail -n colors.txt
+	
+19. diff command
+    • compares two contents of a file line by line.
+    • it will display the parts that do not match.
+    • syntax:- diff note.txt note_update.txt
+	
+20. tar command
+    • archives multiple files into a TAR file (similar to zip file)
+    • syntax :- tar -cvf newarchive.tar /home/user/Documents
+      c = tells linux to create a new archive file.
+      v = to verbosely display files that have been processed.
+      f = stands for the file name.  
+    • -x extracts a file.
+    • -t lists the content of a file.
+    • -u archives and adds to an existing archive file.
+
+	Compress files:- 1. tar caf myfiles.tar.gz  file_path.
+			  2. tar caf myfiles.tar.bz2  file_path.
+
+			 Extract :- tar -xf  file_name
+	
+21. chmod command
+    • modifies a file or directory’s read, write, and execute permissions.
+    • three user classes – owner, group member, and others.
+    • To allow group members and others to read, write, and execute the file, syntax :- chmod 777 note.txt
+      
+    • note:- -rwxrwxrwx permission type, whose numeric value is 777.
+    • symbolic permission :- (+) add permission , (-) removes permission , (=) add permission but remove others.
+      U = user , g = Group , o = others , a = all.
+      Eg:- u+rwx , g=r , o – rwx.
+      Syntax:- chmod u+r,g+w,o+x file_name
+	
+22. chown command
+    • change the ownership of a file, directory, or symbolic link to a specified username.
+    • syntax:- chown linuxuser2 filename.txt
+	
+23. jobs command
+    • Display all the running processes along with their statuses
+    • only available in csh, bash, tcsh, and ksh shells.
+    • syntax:- jobs [options] jobID
+    • -l lists process IDs along with their information.
+    • -n lists jobs whose statuses have changed since the last notification.
+    • -p lists process IDs only.
+	
+24. kill command
+    • To terminate an unresponsive program manually.
+    • To kill a program, you must know its process identification number (PID)
+    • don’t know the PID. syntax:- ps ux
+    • syntax :- kill SIGKILL 63773
+    • SIGTERM requests a program to stop running and gives it some time to save all of its progress. The system will use this by default if you don’t specify the signal when entering the kill command.
+    • SIGKILL forces programs to stop, and you will lose unsaved progress.
+	
+25. ping command
+    • checking whether a network or a server is reachable.
+    • used to troubleshoot various connectivity issues.
+    • syntax :- ping google.com
+	
+26. wget command
+    • download files from the internet
+    • works in the background without hindering other running processes.
+    • retrieves files using HTTP, HTTPS, and FTP protocols.
+    • eg:- wget https://wordpress.org/latest.zip
+	
+27. uname command
+    • print detailed information about your Linux system and hardware.
+    • syntax :- uname [option]
+    • -a prints all the system information.
+    • -s prints the kernel name.
+    • -n prints the system’s node hostname.
+      
+	
+28. top command
+    • Display all the running processes and a dynamic real-time view of the current system.
+    • it sums up the resource utilization, from CPU to memory usage.
+    • syntax:- top
+      
+29. history command
+    • list up to 500 previously executed commands.
+    • reuse them without re-entering.
+    • syntax:- history [option]
+    • -c clears the complete history list.
+    • -d offset deletes the history entry at the OFFSET position.
+    • -a appends history lines.
+	
+30. man command
+    • provides a user manual of any commands or utilities you can run in Terminal, including the name, description, and options.
+    • syntax:- man [command_name]
+	
+31. echo command
+    • A built-in utility that displays a line of text or string using the standard output.
+    • eg:- echo “Hostinger Tutorials”
+	
+32. zip, unzip commands
+    • compress your files into a ZIP file
+    • useful for archiving files and directories and reducing disk usage.
+    • eg:- zip -r archive.zip note.txt  (without -r it will provide empty zip file)
+    • extract file :- unzip archive.zip
+	
+33. hostname command
+    • know the system’s hostname.
+    • syntax :- hostname [option]
+    • -a or –alias displays the hostname’s alias.
+    • -A or –all-fqdns displays the machine’s Fully Qualified Domain Name (FQDN).
+    • -i or –ip-address displays the machine’s IP address.
+
+34. useradd, userdel commands
+    • useradd is used to create a new account
+    • the passwd command allows you to add a password
+    • eg:- useradd John
+    • eg:- passwd 123456789
+	
+35. apt-get command
+    • handling Advanced Package Tool (APT) libraries in Linux.
+    • retrieve information and bundles from authenticated sources to manage, update, remove, and install software and its dependencies.
+    • syntax:- apt-get [options] (command)
+    • update synchronizes the package files from their sources.
+    • upgrade installs the latest version of all installed packages.
+    • check updates the package cache and checks broken dependencies.
+
+
+
+
+
+	
+36. nano, vim, jed commands
+    • Edit and manage files via a text editor, such as nano, vim, or jed.
+      
+    • The nano command denotes keywords and can work with most languages.  syntax:- nano [filename]
+      lightweight editor for text modification tool.
+      ctrl+o to save ,  ctrl+x to exit.
+      
+    • vim uses two operating modes to work – insert and command.
+    • insert for edit and create a text file.
+      Press i to go into insert mode.
+      Shif+i to insert at beginning.
+      
+    • command performs operations , saving,opening,copying,pasting.
+      When in insert mode , press esc key to go into command mode.
+      To save work  -> :w file_name
+      To save and Exit -> :wq 
+      
+    • syntax:- vim  (to open vim editor)  , vim file_name (to open file in vim)
+      
+    • jed has a drop-down menu interface that allows users to perform actions without entering keyboard combinations or commands
+	
+37. alias, unalias commands
+    • alias allows you to create a shortcut with the same functionality as a command,file name or text.
+    • syntax:- alias Name=String
+      
+    • the unalias command deletes an existing alias.
+    • syntax:- unalias [alias_name]
+	
+38. su command (switch user)
+    • allows you to run a program as a different user.
+    • used when root user is unavailable.
+    • syntax :- su [options] [username [argument]]
+    • -p or –preserve-environment keeps the same shell environment, consisting HOME, SHELL, USER, and LOGNAME.
+    • -s or –shell lets you specify a different shell environment to run.
+    • -l or –login runs a login script to switch to a different username. Executing it requires you to enter the user’s password.
+	
+39. htop command        ////////////////not present in the system required admin permission to install
+    • Monitors system resources and server processes in real time.
+    • syntax:- htop [options]
+    • -d or –delay shows the delay between updates in tenths of seconds.
+    • -C or –no-color enables the monochrome mode.
+    • -h or –help displays the help message and exit.
+	
+40. ps command (process status)
+    • produces a snapshot of all running processes in your system.
+      
+    • Executing the ps command without an option or argument will list the running processes in the shell along with:
+      
+    • The unique process ID (PID)
+    • The type of the terminal (TTY)
+    • The running time (TIME)
+    • The command that launches the process (CMD)
+	
+41. Date 
+    • display the system date and time.
+    • used to set date and time of the system
+    • By default the date command displays the date in the time zone on which unix/linux operating system is configured
+    • syntax:- date
+    • -u Option: Displays the time in GMT,   syntax:- date -u
+    • –date or -d Option: Displays the given date string in the format of date.  eg:- $date --date="Jan 23 2023". 
+      
+	
+
+42. Time
+    • execute a command and prints a summary of real-time
+    • user CPU time and system CPU time spent by executing a command when it terminates.
+    • eg:- time sleep 3
+    • time -p : This option is used to print time in POSIX format. syntax:- time -p sleep 3.
+
+43. file and stat
+    • file provide file type.  Syntax :- file myfile.txt
+    • stat display ownership , modification , information etc . Syntax:- stat myfile.txt
+
+44. Wild Card
+    • * for any number of character after and before.
+    • ? for only one number of character after and before.
+
+45. Links
+    • Hard link :- points to data on the disk(inode).
+      Syntax :- ln -s poems.txt  writing.txt.    
+      Here workng.txt makes a copy of  to the poems.txt, after removing of poems.txt still working.txt will show the output.
+      
+    • Soft link :- point to a file on the disk (relative path).
+      Syntax :- ln poems.txt words.txt.    
+      Here words.txt not make copy only use reference of poems.txt and if poems.txt deleted then words.txt will through an error file not found in dir.
+
+46. Pipes
+    • It is used to execute command in order format using “ | ” pipe symbol .
+    • Synatx :- echo “hello” | wc    
+      echo can be replace by any command , pipe “|” says first print the hello then provide the word count (WC).
+      Output:- 1(line of text)   1(number of words)    6(number of letters including next line character). 
+    • More examples :- cat poems.txt | cat – n | tail -n5    
+                                  (print poems.txt with count  and only last 5 lines)
+
+			-> cat poems.txt | tail -n5 | cat - n
+47. Less
+    • To see small portion of file (one screen at a time)
+    • used when large amount of data present in file take more time to open then it will provide page by page output.
+    • Syntax :- less poems.txt
+
+48. Manipulating Text
+    • awk and sed commands can both be used to programmatically manipulate text in streams or files.
+	Awk:-
+                    1. syntax:-  awk ‘{print $2}’ simple_data.txt         (provide 2nd position value) 
+                    2. syntax:-  awk ‘{print $2 “\t” $1}’ simple_data.txt   (print second value then first value from file).
+                    3. Syntax :-  awk’{print $2 “\t” $1}’ simple_data.txt | sort -n  (print into the order)
+	
+	
+	Sed:- Changing values in file.
+		Syntax :- sed “s/orange/red/” simple_data.txt
+		note :- after first slash orange specify the value which we want to change , after 2nd slash red 			specify by which value we want to change.
+
+49. sort
+    • sort the file 
+    • syntax :- sort simple_data.txt      (sort according to first column)
+    • syntax :- sort -k2 simple_data.txt      (sort according to 2nd column but by 1st character)
+    • syntax :- sort -k2 -n simple_data.txt    (by 2nd column in ascending order of numbers)
+    • syntax :- sort -u dupes.txt    (for unique values in file).  
+
+50. Redirection
+    • standard input(stdin)      0       usage = text input
+    • standrad output(stdout)  1       usage = Normal test output
+    • standard error (stderr)    2       usage = error text
+
+	syntax :- ls 1>file_name
+		  cat file_name
+	
+	case :- Redirecting the error:-
+		1 -> ls notreal
+		       out:- no such file or dir
+
+		2 -> ls notreal> filelist3.txt
+		       out:- no such file or dir
+
+		3 -> ls notreal 2>filelist4.txt        [redirecting the error]
+		       out:- no error
+		
+		4 -> cat filelist4.txt
+		       out:- no such file or dir
+
+51. Environment variable and path
+    • env   (type in CLI)
+    • To find path  :-  syntax – which ls 
+                                            which less    (which will provide the less command path )
+	
+
+Solution of video 32 :-
+
+1. extract file -> tar -xf log.tar.gz      provides :- auth.log
+	         -> wc auth.log
+	         -> less auth.log     [having look on all texts]
+
+2. Seeing auth.log file :-   cat auth.log
+
+
+:-  cat auth.log | grep “input_userauth_request” | awk ‘{print $9}’ | sort -u > users.txt
+ 
+
+52. uname -a  [Know about the System]
+    • output :- Type of system , Hostname , Version of kernel , build date , architecture of system.
+
+53. System hardware and disk Information
+    • Ram :- free -h
+    • Processor :- lscpu
+    • Storage :- df -h   [storage used by the files]
+    • syntax :- sudo du / -hd1  .    
+      du stands for disk usage.
+      “ / ”  root or position.
+      “d1” level of details .
+    • Addess info :- ip a
+
+54. more command
+
+    • It is quite similar to cat command . But it is also useful in case of large files.
+      
+    • In more command the following keys used for manage the page :
+      
+      Enter Key : To scroll down page by line
+      Space bar : To move to the next page
+       b key : To move to the previous page
+      / key : To search the string
+      
+    • Syntax:- more abc.txt
+
+55. Rename
+    • It is the command which is used for rename the large group of files . We can rename prefix and change the extension of files by using rename command .
+    • Syntax :- rename ‘s/old_name/new_name/’ 
+      change name :- rename 's/a/abcd/' *.txt
+      change Extension :- rename 's/\.txt/\.pdf/' *.txt
