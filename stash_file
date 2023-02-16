@@ -1,2 +1,8 @@
 some stash
 Change for rebase
+<<<<<<< HEAD
+=======
+1st change
+2nd change for reset
+3nd change for reset
+>>>>>>> 422837ee66d3ba527534747fd608448f18f23049
