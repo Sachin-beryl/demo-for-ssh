@@ -1,0 +1,11 @@
+id,name,type,address,open_time,close_time,ratings
+1,The Breakfast club,Veg,Neelam chowk,09:00:00,12:00:00,4
+2,Happy Grillmore,non_veg,faridabad,17:00:00,23:00:00,3
+3,Dominos,veg_and_non_veg,Bata chowk,10:00:00,23:00:00,5
+4,Burger-king,veg_and_non_veg,Bata chowk,10:00:00,23:00:00,4
+5,The Maharaja club,non_veg,Badarpur,11:00:00,22:00:00,3
+6,The Indian Grill,Veg,Badarpur,11:00:00,22:00:00,5
+7,Mughlai Darbar,non_veg,Delhi,10:00:00,21:00:00,5
+8,Shahi Darbar,veg_and_non_veg,Delhi,09:00:00,22:00:00,4
+9,Curry Kingdom,Veg,Faridabad,10:00:00,22:00:00,2
+10,Dilli ki Rasoi,veg_and_non_veg,Delhi,11:30:00,23:00:00,4

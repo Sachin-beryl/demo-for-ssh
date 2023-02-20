@@ -1,0 +1,21 @@
+id,restaurant_id,name,price,description
+1,3,pizza,230,"1 medium , paneer and onion"
+2,1,Sandwish,120,"2 pic , Corn and spinach whole wheat"
+3,7,Biryani,450,"1 kg, Mutton hyderabadi Dum biryani"
+4,9,Dal makhani,140,"1 plate , Urad dal and rajma"
+5,4,Crispy veg burger,70,Crispy veg patty burger
+6,10,2-Aloo pyaaz paratha,242,Served with curd
+7,5,Tandoori chicken,249,"1/2 kg ,Tandori marinated & spiced"
+8,1,Paneer paratha,90,2 pic
+9,6,Veg grilled sandwich,100,2 pic with cheese
+10,10,Veg Thali,350,"shahi paneer,Dal makhani,Mix Veg,Rice,Raita,Butter roti,Gulab jamun,Onion"
+11,2,Grilled chicken Breast,550,"146g protein,18g fat,2g fiber"
+12,8,Royal biryani,685,"1 kg , slow cooked with tandoori spiced prawn"
+13,2,Lemon grill chicken,224,200g chicken breast
+14,9,Achari paneer tikka,315,10 pic of paneer with green sauce
+15,7,Murgh Malai seekh,660,Creamy kebabs made with spiced chicken keema
+16,8,Falooda,137,"15g , with Ice-cream"
+17,3,Chicken pepperoni pizza,850,"1 medium, classic italian"
+18,4,Veg whopper,169,Signature veg patty whopper
+19,6,Grilled Burger,85,Mouth watering taste
+20,5,Butter Chicken Rara,425,"full plate ,Butter chicken with minced butter chicken gravy"
