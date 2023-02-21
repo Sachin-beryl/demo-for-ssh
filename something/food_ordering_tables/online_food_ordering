@@ -1,0 +1,360 @@
+
+		      List of relations
+	 Schema |       Name       | Type  |  Owner   
+	--------+------------------+-------+----------
+	 public | cart_items       | table | postgres
+	 public | checkout_details | table | postgres
+	 public | customers        | table | postgres
+	 public | menu_items       | table | postgres
+	 public | order_details    | table | postgres
+	 public | order_status     | table | postgres
+	 public | orders           | table | postgres
+	 public | payments         | table | postgres
+	 public | ratings          | table | postgres
+	 public | restaurants      | table | postgres
+ 
+
+ 1). online_food_ordering=# select * from cart_items;
+
+	 id | customer_id | menu_id | quantity |     created_at      |     updated_at      
+	----+-------------+---------+----------+---------------------+---------------------
+	  1 |           3 |       7 |        2 | 2023-02-02 11:30:00 | 2023-02-02 13:05:00
+	  2 |           8 |      12 |        1 | 2023-01-07 10:07:00 | 2023-01-08 10:05:00
+	  3 |          14 |      10 |        2 | 2022-12-17 12:23:00 | 2022-12-17 12:30:00
+	  4 |           9 |      17 |        5 | 2023-02-18 11:37:00 | 2023-02-18 23:40:00
+	  5 |           8 |      19 |        5 | 2023-01-28 13:37:00 | 2023-01-28 14:00:00
+	(5 rows)
+
+ 2). online_food_ordering=# select * from checkout_details;
+
+	 id | order_id |      check_at       |        address        | delivery_charge 
+	----+----------+---------------------+-----------------------+-----------------
+	  1 |        2 | 2023-02-10 14:23:00 | 48 Delaware Point     |              40
+	  2 |        9 | 2023-01-09 11:51:00 | 567 Sycamore Way      |              20
+	  3 |        3 | 2023-01-22 10:13:00 | 04 Talmadge Lane      |              20
+	  4 |       10 | 2022-08-08 20:08:00 | 30470 Emmet Circle    |              60
+	  5 |       12 | 2022-09-22 19:10:00 | 6438 Sunnyside Street |              40
+	(5 rows)
+
+
+ 3). online_food_ordering=# select * from customers;
+
+	 id | first_name | last_name  |            email            |   phone    |   username   |   password   |        address         |     created_at      
+	----+------------+------------+-----------------------------+------------+--------------+--------------+------------------------+---------------------
+	  1 | Norah      | Bulluck    | nbulluck0@timesonline.co.uk | 4498136144 | nbulluck0    | m6R1ef       | 30470 Emmet Circle     | 2023-02-17 11:46:00
+	  2 | Rad        | Ripsher    | rripsher1@cocolog-nifty.com | 7318203254 | rripsher1    | XaF6uX       | 20112 Sycamore Street  | 2023-01-05 14:05:00
+	  3 | Lonnie     | Tarbard    | ltarbard2@weebly.com        | 2088202323 | ltarbard2    | fkGNrm       | 63971 Shelley Crossing | 2023-01-29 05:28:00
+	  4 | Newton     | Beldom     | nbeldom3@tripod.com         | 9105924398 | nbeldom3     | MsAJdurqvqIz | 07926 Canary Center    | 2023-02-10 23:06:00
+	  5 | Ethe       | Downing    | edowning4@fastcompany.com   | 5167204325 | edowning4    | XxLacF4      | 48 Delaware Point      | 2023-02-23 03:46:00
+	  6 | Andrey     | Fryd       | afryd5@cmu.edu              | 7161592822 | afryd5       | 1lprxTZaq    | 93 Lake View Parkway   | 2023-01-15 19:14:00
+	  7 | Ibrahim    | Dorrity    | idorrity6@tinyurl.com       | 9665654644 | idorrity6    | DanmL6g      | 3 Kings Crossing       | 2022-10-28 14:43:00
+	  8 | Berti      | Sherlock   | bsherlock7@weibo.com        | 8728756665 | bsherlock7   | obt2s6GPbxv  | 20 Hazelcrest Way      | 2022-05-13 12:06:00
+	  9 | Bendite    | Danis      | bdanis8@live.com            | 4922883725 | bdanis8      | UIWjfEN      | 4 Buhler Junction      | 2022-07-09 02:32:00
+	 10 | Alyse      | Mapplebeck | amapplebeck9@sakura.ne.jp   | 7402722084 | amapplebeck9 | OwKrBNveZ    | 567 Sycamore Way       | 2022-05-25 05:49:00
+	 11 | Muriel     | Kibbel     | mkibbela@indiegogo.com      | 9358185298 | mkibbela     | rRIkLR       | 6438 Sunnyside Street  | 2022-11-21 05:57:00
+	 12 | Lonna      | Premble    | lprembleb@salon.com         | 8484292339 | lprembleb    | fDKbZZ       | 6517 Linden Center     | 2023-01-18 22:00:00
+	 13 | Marlo      | Scrymgeour | mscrymgeourc@csmonitor.com  | 1176070248 | mscrymgeourc | 6waWNAwz     | 04 Talmadge Lane       | 2022-07-16 19:58:00
+	 15 | Ashly      | Hiley      | ahileye@biglobe.ne.jp       | 8836875761 | ahileye      | 1m03cP9Z     | 59 Boyd Road           | 2022-12-06 05:59:00
+	 14 | Gilberta   | Coxhead    | gcoxheadd@mapy.cz           | 3127590453 | gcoxheadd    | b4EQLkNTfLF  | 013 Badeau Road        | 2023-02-03 01:03:00
+	(15 rows)
+
+
+4). online_food_ordering=# select * from menu_items;
+
+	 id | restaurant_id |          name           | price |                                description                                
+	----+---------------+-------------------------+-------+---------------------------------------------------------------------------
+	  1 |             3 | pizza                   |   230 | 1 medium , paneer and onion
+	  2 |             1 | Sandwish                |   120 | 2 pic , Corn and spinach whole wheat
+	  3 |             7 | Biryani                 |   450 | 1 kg, Mutton hyderabadi Dum biryani
+	  4 |             9 | Dal makhani             |   140 | 1 plate , Urad dal and rajma
+	  5 |             4 | Crispy veg burger       |    70 | Crispy veg patty burger
+	  6 |            10 | 2-Aloo pyaaz paratha    |   242 | Served with curd
+	  7 |             5 | Tandoori chicken        |   249 | 1/2 kg ,Tandori marinated & spiced
+	  8 |             1 | Paneer paratha          |    90 | 2 pic
+	  9 |             6 | Veg grilled sandwich    |   100 | 2 pic with cheese
+	 10 |            10 | Veg Thali               |   350 | shahi paneer,Dal makhani,Mix Veg,Rice,Raita,Butter roti,Gulab jamun,Onion
+	 11 |             2 | Grilled chicken Breast  |   550 | 146g protein,18g fat,2g fiber
+	 12 |             8 | Royal biryani           |   685 | 1 kg , slow cooked with tandoori spiced prawn
+	 13 |             2 | Lemon grill chicken     |   224 | 200g chicken breast
+	 14 |             9 | Achari paneer tikka     |   315 | 10 pic of paneer with green sauce
+	 15 |             7 | Murgh Malai seekh       |   660 | Creamy kebabs made with spiced chicken keema
+	 16 |             8 | Falooda                 |   137 | 15g , with Ice-cream
+	 17 |             3 | Chicken pepperoni pizza |   850 | 1 medium, classic italian
+	 18 |             4 | Veg whopper             |   169 | Signature veg patty whopper
+	 19 |             6 | Grilled Burger          |    85 | Mouth watering taste
+	 20 |             5 | Butter Chicken Rara     |   425 | full plate ,Butter chicken with minced butter chicken gravy
+	(20 rows)
+
+
+5). online_food_ordering=# select * from orders;
+ 
+	 id | customer_id |     created_at      | menu_id 
+	----+-------------+---------------------+---------
+	  1 |           2 | 2023-02-08 17:10:00 |      19
+	  2 |           5 | 2023-02-10 14:23:00 |      11
+	  3 |          13 | 2023-01-22 10:13:00 |      12
+	  4 |           9 | 2022-07-21 12:19:00 |       7
+	  5 |           2 | 2023-01-17 15:03:00 |       8
+	  6 |          15 | 2022-11-19 17:43:00 |       4
+	  7 |          13 | 2022-03-28 11:24:00 |       8
+	  8 |           3 | 2023-01-22 12:10:00 |       2
+	  9 |          10 | 2023-01-09 11:51:00 |       7
+	 10 |           1 | 2022-08-08 20:08:00 |       3
+	 11 |           4 | 2023-02-01 16:13:00 |       7
+	 12 |          11 | 2022-09-22 19:10:00 |       5
+	 13 |           8 | 2022-03-29 13:20:00 |      14
+	(13 rows)
+
+6). online_food_ordering=# select * from order_status;
+
+	 id |  status   |        time         | order_id 
+	----+-----------+---------------------+----------
+	  1 | Approved  | 2023-02-10 14:25:00 |        2
+	  2 | pending   | 2023-01-09 11:53:00 |        9
+	  3 | cancelled | 2022-08-08 20:10:00 |       10
+	  4 | Approved  | 2022-09-22 19:11:00 |       12
+	  5 | Approved  | 2023-01-22 10:14:00 |        3
+	(5 rows)
+
+7). online_food_ordering=# select * from order_details;
+
+	 id | order_id | quantity 
+	----+----------+----------
+	  1 |        1 |        2
+	  2 |        2 |        5
+	  3 |        5 |        3
+	  4 |        4 |        1
+	  5 |        7 |        2
+	  6 |       12 |        4
+	  7 |        9 |       10
+	  8 |        3 |        3
+	  9 |       10 |        4
+	 10 |        8 |        1
+	(10 rows)
+
+8). online_food_ordering=# select * from payments;
+
+	 id | order_id | amount |        Date         
+	----+----------+--------+---------------------
+	  1 |        2 |   2750 | 2023-02-10 14:25:00
+	  2 |        9 |   2510 | 2023-01-09 11:53:00
+	  3 |        3 |   2075 | 2022-08-08 20:10:00
+	  4 |       10 |   1056 | 2022-09-22 19:11:00
+	  5 |       12 |    320 | 2023-01-22 10:14:00
+	(5 rows)
+
+9). online_food_ordering=# select * from ratings;
+
+	 id | menu_id | score |      remarks      |        date         | customer_id 
+	----+---------+-------+-------------------+---------------------+-------------
+	  1 |       1 | 4     | amazing pizza     | 2020-10-07 00:00:00 |           2
+	  2 |       2 | 3     | average sandwich  | 2021-01-21 00:00:00 |           7
+	  3 |       3 | 5     | best biryani ever | 2022-02-07 00:00:00 |           9
+	  4 |       4 | 5     | Awesome one       | 2022-01-12 00:00:00 |          10
+	  5 |       5 | 2     | Not satisfying    | 2021-09-17 00:00:00 |           5
+	  6 |      17 | 4     | nice pizza        | 2022-03-25 00:00:00 |          15
+	  7 |      13 | 5     | very tasty        | 2023-11-11 00:00:00 |           1
+	  8 |      14 | 4     | nice              | 2022-11-24 00:00:00 |           1
+	(8 rows)
+
+10). online_food_ordering=# select * from restaurants;
+
+	 id |        name        |      type       |   address    | open_time | close_time | ratings 
+	----+--------------------+-----------------+--------------+-----------+------------+---------
+	  1 | The Breakfast club | Veg             | Neelam chowk | 09:00:00  | 12:00:00   | 4
+	  2 | Happy Grillmore    | non_veg         | faridabad    | 17:00:00  | 23:00:00   | 3
+	  3 | Dominos            | veg_and_non_veg | Bata chowk   | 10:00:00  | 23:00:00   | 5
+	  4 | Burger-king        | veg_and_non_veg | Bata chowk   | 10:00:00  | 23:00:00   | 4
+	  5 | The Maharaja club  | non_veg         | Badarpur     | 11:00:00  | 22:00:00   | 3
+	  6 | The Indian Grill   | Veg             | Badarpur     | 11:00:00  | 22:00:00   | 5
+	  7 | Mughlai Darbar     | non_veg         | Delhi        | 10:00:00  | 21:00:00   | 5
+	  8 | Shahi Darbar       | veg_and_non_veg | Delhi        | 09:00:00  | 22:00:00   | 4
+	  9 | Curry Kingdom      | Veg             | Faridabad    | 10:00:00  | 22:00:00   | 2
+	 10 | Dilli ki Rasoi     | veg_and_non_veg | Delhi        | 11:30:00  | 23:00:00   | 4
+
+---------------------------------------------------------------Questions----------------------------------------------------------------
+
+
+ 1). print customer first name , menu id, amount where amount less than 2500.
+ 
+ 	sol :- select cust."First_name" , ord.menu_id, pay.amount from customers as cust inner join orders as ord on cust.id = ord."Customer_id" inner join menu_items mi on mi.id = ord.menu_id inner join payments as pay on pay."Order_id" = ord.id where pay.amount < 2500;    
+ 	
+ 	output:- 
+		 First_name | menu_id | amount 
+		------------+---------+--------
+		 Marlo      |      12 |   2075
+		 Norah      |       3 |   1056
+		 Muriel     |       5 |    320
+		 
+-------------------------------------------------------------------------------------------------------		 
+
+ 2). Show cart id, customer id, customer first name, item name where quantity greater then 3 and item id range between 5 and 20.
+ 
+ 
+	sol :- select cart.id as cart_id ,cust.id as cust_id,cust.first_name,mi.name from customers as cust inner join cart_items as cart on cust.id = cart.customer_id inner join menu_items as mi on mi.id=cart.menu_id where cart.quantity > 3 and mi.id between 5 and 20;
+	
+	output :-
+		 cart_id | cust_id | first_name |          name           
+		---------+---------+------------+-------------------------
+		       4 |       9 | Bendite    | Chicken pepperoni pizza
+		       5 |       8 | Berti      | Grilled Burger
+ 
+----------------------------------------------------------------------------------------------------------- 
+ 
+ 3). show restaurant id,name,type,ratings , (price and description) of menu items where menu item range 3 to 17 and restaurant address must be faridabad.
+ 
+ 	sol :- elect rest.id,rest.name,rest.type,rest.ratings,mi.price,mi.description from restaurants as rest inner join menu_items as mi on rest.id = mi.restaurant_id where mi.id between 3 and 17 and rest.address = 'faridabad';
+ 	
+ 	output :-
+		 id |      name       |  type   | ratings | price |          description          
+		----+-----------------+---------+---------+-------+-------------------------------
+		  2 | Happy Grillmore | non_veg | 3       |   550 | 146g protein,18g fat,2g fiber
+		  2 | Happy Grillmore | non_veg | 3       |   224 | 200g chicken breast
+ 
+----------------------------------------------------------------------------------------------------------- 
+ 
+ 4). print customer id,first name, drop location,delivery charge,menu item remark,menu item name, menu item price , order status where pay amount greater than 1000 and rating score in range 3 to 5.
+ 
+ 	sol :- select cust.id as cust_id , cust.first_name as cust_name , checko.address as drop_location, checko.delivery_charge , rat.remarks,mi.name as item_name,mi.price as item_price,ordst.status from customers as cust inner join orders as ord on cust.id = ord.customer_id inner join checkout_details as checko on checko.order_id = ord.id inner join menu_items as mi on mi.id = ord.menu_id inner join order_status as ordst on ordst.order_id = ord.id inner join ratings as rat on rat.menu_id = mi.id inner join payments as pay on pay.order_id = ord.id where pay.amount > 1000 and rat.score between '3' and '5';  
+ 	
+ 	output :-
+		 cust_id | cust_name |   drop_location    | delivery_charge |      remarks      | item_name | item_price |  status   
+		---------+-----------+--------------------+-----------------+-------------------+-----------+------------+-----------
+		       1 | Norah     | 30470 Emmet Circle |              60 | best biryani ever | Biryani   |        450 | cancelled
+
+ 
+------------------------------------------------------------------------------------------------------------ 
+ 
+ 5). print restaurants name,address,rating where restaurant selling pizza.
+ 
+ 	sol :- select rest.name , rest.address , rest.ratings from restaurants as rest inner join menu_items as mi on rest.id = mi.restaurant_id inner join ratings as rat on rat.id = mi.id where mi.name = 'pizza';
+ 	
+ 	output:-
+		  name   |  address   | ratings 
+		---------+------------+---------
+		 Dominos | Bata chowk | 5
+
+-------------------------------------------------------------------------------------------------------------
+
+ 6). show restaurants name,address,ratings,open time,close time where menu items range in 6 to 18;
+ 
+ 	sol :- select rest.name , rest.address , rest.ratings,rest.open_time,rest.close_time from restaurants as rest inner join menu_items as mi on rest.id = mi.restaurant_id inner join ratings as rat on rat.id = mi.id where mi.id between 6 and 18;
+ 	
+ 	output :- 
+			name        |   address    | ratings | open_time | close_time 
+		--------------------+--------------+---------+-----------+------------
+		 Dilli ki Rasoi     | Delhi        | 4       | 11:30:00  | 23:00:00
+		 The Maharaja club  | Badarpur     | 3       | 11:00:00  | 22:00:00
+		 The Breakfast club | Neelam chowk | 4       | 09:00:00  | 12:00:00
+
+-------------------------------------------------------------------------------------------------------------
+
+ 7). print all details from menu items where price of item is highest.
+ 
+ 	sol :- select * from menu_items where price = (select max(price) from menu_items); 
+ 	
+ 	output :- 
+		 id | restaurant_id |          name           | price |        description        
+		----+---------------+-------------------------+-------+---------------------------
+		 17 |             3 | Chicken pepperoni pizza |   850 | 1 medium, classic italian
+
+--------------------------------------------------------------------------------------------------------------
+
+ 8). print all details from menu items where price of item is cheapest.
+ 
+ 	sol :- select * from menu_items where price = (select min(price) from menu_items); 
+ 	
+ 	output :- 
+		 id | restaurant_id |       name        | price |       description       
+		----+---------------+-------------------+-------+-------------------------
+		  5 |             4 | Crispy veg burger |    70 | Crispy veg patty burger
+
+--------------------------------------------------------------------------------------------------------------
+
+ 9). show the name of menu item whose rating score is more than 3.
+ 
+ 	sol :- select mi.name from menu_items as mi inner join ratings as rat on mi.id = rat.menu_id where rat.score > '3';
+ 	
+ 	output:-
+			  name           
+		-------------------------
+		 pizza
+		 Biryani
+		 Dal makhani
+		 Lemon grill chicken
+		 Achari paneer tikka
+		 Chicken pepperoni pizza
+		 
+----------------------------------------------------------------------------------------------------------------
+
+ 10). show the customer(id,first name) , restaurant (id, name), amount , date and quantity where order status is pending.
+ 
+ 	sol :- select cust.id as cust_id,cust.first_name as cust_name, rest.id as rest_id , rest.name as rest_name , pay.amount ,pay."Date",ordd.quantity from customers as cust inner join orders as ord on cust.id = ord.customer_id inner join menu_items as mi on mi.id = ord.menu_id inner join restaurants as rest on rest.id = mi.restaurant_id inner join payments as pay on pay.order_id = ord.id inner join order_details as ordd on ordd.order_id = ord.id inner join order_status as ordst on ordst.order_id = ord.id where ordst.status = 'pending'; 
+ 	
+ 	output :- 
+		 cust_id | cust_name | rest_id |     rest_name     | amount |        Date         | quantity 
+		---------+-----------+---------+-------------------+--------+---------------------+----------
+		      10 | Alyse     |       5 | The Maharaja club |   2510 | 2023-01-09 11:53:00 |       10
+
+
+NOTE :- replace pending with approved , cancelled for other order status output.
+ 
+----------------------------------------------------------------------------------------------------------------- 
+ 
+ 11). find the customers who have not placed any order.
+ 
+ 	sol :- select * from customers where id NOT IN (select cust.id from customers as cust inner join orders as ord on cust.id = ord.customer_id);
+ 	
+ 	output :-
+ 	
+ id | first_name | last_name |         email         |   phone    | username  |  password   |       address        |     created_at      
+----+------------+-----------+-----------------------+------------+-----------+-------------+----------------------+---------------------
+  6 | Andrey     | Fryd      | afryd5@cmu.edu        | 7161592822 | afryd5    | 1lprxTZaq   | 93 Lake View Parkway | 2023-01-15 19:14:00
+  7 | Ibrahim    | Dorrity   | idorrity6@tinyurl.com | 9665654644 | idorrity6 | DanmL6g     | 3 Kings Crossing     | 2022-10-28 14:43:00
+ 12 | Lonna      | Premble   | lprembleb@salon.com   | 8484292339 | lprembleb | fDKbZZ      | 6517 Linden Center   | 2023-01-18 22:00:00
+ 14 | Gilberta   | Coxhead   | gcoxheadd@mapy.cz     | 3127590453 | gcoxheadd | b4EQLkNTfLF | 013 Badeau Road      | 2023-02-03 01:03:00
+
+
+-------------------------------------------------------------------------------------------------------------------
+ 
+ 12). Give remark on the basics of scores on menu_items.
+ 
+ 	sol :- select rat.id,case
+		WHEN rat.score = '4' or rat.score = '5' THEN 'Excellent'
+		WHEN rat.score = '3' THEN 'Good'
+		WHEN rat.score = '2' or rat.score = '1' THEN 'poor'
+		END remark,rat.score
+		from ratings as rat;
+		
+	output :- 
+	
+		 id |  remark   | score 
+		----+-----------+-------
+		  1 | Excellent | 4
+		  2 | Good      | 3
+		  3 | Excellent | 5
+		  4 | Excellent | 5
+		  5 | poor      | 2
+		  6 | Excellent | 4
+		  7 | Excellent | 5
+		  8 | Excellent | 4
+		(8 rows)
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
